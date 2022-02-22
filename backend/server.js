@@ -8,6 +8,9 @@ app.get('/', (req, res) => {
   res.json({ message: 'hello canim dedik' });
 });
 
+//Routes
+app.use('/api/users', require('./routes/userRoutes'));
+
 app.listen(PORT, () =>
   console.log(`Server running on --> http://localhost:${PORT}`)
 );
