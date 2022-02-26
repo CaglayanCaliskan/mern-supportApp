@@ -7,7 +7,11 @@ import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
 import { FaPlus } from 'react-icons/fa';
 import { getTicket, closeTicket } from '../features/tickets/ticketSlice';
-import { getNotes, reset as notesReset } from '../features/notes/noteSlice';
+import {
+  getNotes,
+  createNote,
+  reset as notesReset,
+} from '../features/notes/noteSlice';
 import NoteItem from '../components/NoteItem';
 const customStyles = {
   content: {
@@ -60,8 +64,9 @@ function Ticket() {
 
   const onNoteSubmit = (e) => {
     e.preventDefault();
+    console.log(noteText, ticketId);
 
-    console.log('submit');
+    dispatch(createNote({ noteText, ticketId }));
     closeModal();
   };
 
